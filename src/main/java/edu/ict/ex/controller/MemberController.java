@@ -1,12 +1,14 @@
 package edu.ict.ex.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.ict.ex.dto.MemberDto;
 import edu.ict.ex.service.MemberService;
+import edu.ict.ex.vo.UserVO;
 
 
 @RestController
@@ -16,21 +18,20 @@ public class MemberController {
 	MemberService service;
 	
 	@RequestMapping(value="/getUserid", method= {RequestMethod.GET, RequestMethod.POST})
-		public String getUserid(MemberDto dto) {
+	public String getUserid(@PathVariable String id) {
 		System.out.println("MemberController getUserid");
 		
-		boolean b = service.getuserid(dto);
-		if(b) {
-			return "NO";
-		}
-		return "OK";
+		UserVO vo = service.getuserid(id);
+		
+		return "/";
 	}
 	
 	@RequestMapping(value = "/addmember", method = {RequestMethod.GET, RequestMethod.POST})
-	public MemberDto addmember(MemberDto dto) {
+	public String addmember(@RequestBody UserVO vo) {
 		System.out.println("MemverController login");
 		
-		MemberDto mem = service.login(dto);
-		return mem;
+		service.addmember(vo);
+		
+		return "";
 	}
 }

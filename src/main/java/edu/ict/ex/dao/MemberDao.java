@@ -3,17 +3,15 @@ package edu.ict.ex.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
-import edu.ict.ex.dto.MemberDto;
+import edu.ict.ex.vo.UserVO;
 
 @Mapper
 @Repository
 public interface MemberDao {
 	
-	public int getuserid(MemberDto dto);
+	public UserVO getuserid(String id);
 	
-	public int addmember(MemberDto dto);
-	
-	public MemberDto login(MemberDto dto);
+	public int addmember(UserVO vo);
 
 	
 	

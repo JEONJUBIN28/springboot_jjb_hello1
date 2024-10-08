@@ -3,26 +3,18 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-  <mapper namespace="mul.camp.a.dao.MemberDao">
-  
-  <select id="getId" parameterType="mul.camp.a.dto.MemberDto" resultType="java.lang.Integer">
-  SELECT NVL(COUNT(*),0)
-  FROM MEMBER2
-  WHERE id=#{id}
-  </select>
-  
-  
-  <insert id="addmember" parameterType="mul.camp.a.dto.MemberDto">
-  INSERT INTO MEMBER2(ID, PWD, NAME, EMAIL, AUTH)
-	VALUES(#{id}, #{pwd}, #{name}, #{email}, 3)
-  </insert>
-  
-  <select id="login" parameterType="mul.camp.a.dto.MemberDto"
-  resultType="mul.camp.a.dto.MemberDto">
-  SELECT ID,NAME,EMAIL,AUTH
-  FROM MEMBER2
-  WHERE ID=#{id} AND PWD=#{pwd}
-  </select>
+<mapper namespace="edu.ict.ex.dao.MemberDao">
 
-  
-  </mapper>
+	<select id="getuserid" parameterType="edu.ict.ex.vo.UserVO">
+		SELECT * FROM MEMBERS2 WHERE id=#{id}
+	</select>
+
+
+	<insert id="addmember" parameterType="edu.ict.ex.vo.UserVO">
+		INSERT INTO members2 (id, passwd, member_gubun, manager_role, status, name, birthday, telno, email, create_date, last_change_id, last_change_date, expire_date) 
+		VALUES (#{id}, #{passwd}, 1, 1, 1, '최관리자', '19881231', '010-4444-3333', 'admin04@example.com', SYSDATE, 'admin', SYSDATE, NULL);
+	</insert>
+
+
+
+</mapper>

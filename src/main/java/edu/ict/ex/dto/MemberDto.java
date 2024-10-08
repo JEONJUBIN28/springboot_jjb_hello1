@@ -3,54 +3,30 @@ package edu.ict.ex.dto;
 import java.sql.Date;
 
 public class MemberDto {
-	private String userid;
-	private String passwd;
+	private String userId;
+	private String passWd;
 	private int birthyear;
-	private String regdate;
+	private Date regdate;
 	private Date birthdate;
 	private String email;
 	private String name;
 	private String role;
-	private int auth;
-
-	public int getAuth() {
-		return auth;
-	}
-
-	public void setAuth(int auth) {
-		this.auth = auth;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getRole() {
-		return role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
-	}
+	private String auth;
 
 	public String getUserid() {
-		return userid;
+		return userId;
 	}
 
 	public void setUserid(String userid) {
-		this.userid = userid;
+		this.userId = userid;
 	}
 
 	public String getPasswd() {
-		return passwd;
+		return passWd;
 	}
 
 	public void setPasswd(String passwd) {
-		this.passwd = passwd;
+		this.passWd = passwd;
 	}
 
 	public int getBirthyear() {
@@ -61,11 +37,11 @@ public class MemberDto {
 		this.birthyear = birthyear;
 	}
 
-	public String getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(String regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 
@@ -85,9 +61,34 @@ public class MemberDto {
 		this.email = email;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public String getAuth() {
+		return auth;
+	}
+
+	public void setAuth(String auth) {
+		this.auth = auth;
+	}
+
 	@Override
 	public String toString() {
-		return "MemberDto [userid=" + userid + ", passwd=" + passwd + ", name=" + name + ", email="+ email +", auth=" + auth + "]";
+		return " MemberDto [userid=" + userId + ", passwd=" + passWd + ", name=" + name + ", email=" + email + ", auth="
+				+ auth + ", birthyear=" + birthyear + ", regdate=" + regdate + ", role=" + role + ", birthdate= " + birthdate + "]";
 	}
 
 }
